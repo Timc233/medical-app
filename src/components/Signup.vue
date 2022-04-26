@@ -1,39 +1,20 @@
-<script setup>
-import {ref, onMounted} from 'vue'
-import { useRouter } from 'vue-router';
-
-const router = useRouter()
-
-
-function signup(){
-    router.push({name:'signup'})
-}
-
-function signin(){
-    router.push({name:'home'})
-}
-
-
-</script>
-
 <template>
 <div class="wrapper">
             <h1 class="portal-title">
-                Medical System
+                Create your account
             </h1>
             <div class="input-fields">
+                <input placeholder="Username">
+                <hr class="line-separator">
                 <input text="Email" placeholder="Email" id="email-text">
                 <hr class="line-separator">
                 <input text="Password" placeholder="Password" id="password-text">
                 <hr class="line-separator">
-                <a text="Forgot password?" id="forgot-password"></a>
-                <button id="signin-button" @click="signin">Sign in</button>
-                <p id="no-account">Don't have an account?
-                    <span>
-                        <a @click="signup" id="create-account">Create Account</a>
-                    </span>
+                <input placeholder="Confirm">
+                <hr class="line-separator">
                 
-                </p>
+                <button id="signup-button" >Sign up</button>
+                
             </div>
             <footer></footer>
 </div>
@@ -104,8 +85,8 @@ input:focus{
     margin:0;
 }
 
-#signin-button{
-    margin:0 auto;
+#signup-button{
+    margin:2rem auto;
     width:20.5rem;
     height:2rem;
     background-color: #007AFF;

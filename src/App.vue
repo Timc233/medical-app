@@ -5,6 +5,6 @@ import Portal from '@/components/Portal.vue'
 </script>
 
 <template>
-  <Portal/>
+  <router-view></router-view>
 </template>
 
