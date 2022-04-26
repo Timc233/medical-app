@@ -10,9 +10,9 @@
 
             <div class="input-fields">
             <input text="Email" placeholder="Email" id="email-text">
-            <hr id="line-separator">
+            <hr class="line-separator">
             <input text="Password" placeholder="Password" id="password-text">
-            <hr id="line-separator">
+            <hr class="line-separator">
             <a text="Forgot password?" id="forgot-password"></a>
             <button id="signin-button">Sign in</button>
             <p id="no-account">Don't have an account? <span id="create-account"><a>Create Account</a></span></p>
@@ -33,9 +33,9 @@
 }
 
 body{
-    /* background: rgb(93,171,255);
+    background: rgb(93,171,255);
     background: radial-gradient(circle, rgba(93,171,255,1) 0%, rgba(255,255,255,1) 55%);
-     */
+    
     /* background-color: rgba(255, 255, 255, .15);   */
     /* backdrop-filter: blur(25px); */
   }
@@ -53,7 +53,7 @@ h1, a, p, #signin-button, input{
 }
 
 .portal-title{
-    margin: auto;
+    margin: 3rem 0;
     width: 100%;
     text-align: center;
 }
@@ -71,12 +71,17 @@ h1, a, p, #signin-button, input{
     width:20rem;
     height:1.5rem;
     margin:0.5rem 0 0 0;
-    border: 0;
+    border:0;
+    padding:0.5rem;
 
 }
 
-#line-separator{
-    border-top: 1px solid #bbb;
+#email-text:focus, #password-text:focus{
+    outline: none;
+}
+
+.line-separator{
+    border: 1px solid #bbb;
     width:20rem;
     margin:0;
 }
