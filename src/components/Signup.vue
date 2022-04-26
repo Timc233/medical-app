@@ -1,10 +1,46 @@
+<script setup>
+import {ref} from 'vue'
+const isMP = ref(false)
+const isMale = ref(false)
+
+function roleClick(event){
+    if(event.target.id == "role-patient"){
+        isMP.value = false
+    }else{
+        isMP.value = true
+    }
+}
+
+function genderClick(event){
+    if(event.target.id == "male"){
+        isMale.value = true
+    }else{
+        isMale.value = false
+    }
+}
+
+</script>
+
 <template>
 <div class="wrapper">
             <h1 class="portal-title">
                 Create your account
             </h1>
             <div class="input-fields">
-                <input placeholder="Username">
+                <p>Select your role</p>
+                <div id="role-button-wrapper">
+                    <button id="role-patient" class="role-button" @click="roleClick" :class="isMP ?'role-button' : 'role-button-clicked'" :style="{ cursor: 'pointer'}">Patient</button>
+                    <button id="role-MP" class="role-button" @click="roleClick" :class="isMP ?'role-button-clicked' : 'role-button'" :style="{ cursor: 'pointer'}">Medical Professional</button>
+                </div>
+
+                <p>Biological Gender</p>
+                <div id="gender-button-wrapper">
+                    <button id="male" class="role-button" @click="genderClick" :class="isMale ?'role-button-clicked' : 'role-button'" :style="{ cursor: 'pointer'}">Male</button>
+                    <button id="female" class="role-button" @click="genderClick" :class="isMale ?'role-button' : 'role-button-clicked'" :style="{ cursor: 'pointer'}">Female</button>
+
+                </div>
+                
+                <input placeholder="Name">
                 <hr class="line-separator">
                 <input text="Email" placeholder="Email" id="email-text">
                 <hr class="line-separator">
@@ -13,7 +49,7 @@
                 <input placeholder="Confirm">
                 <hr class="line-separator">
                 
-                <button id="signup-button" >Sign up</button>
+                <button id="signup-button" :style="{ cursor: 'pointer'}">Sign up</button>
                 
             </div>
             <footer></footer>
@@ -66,6 +102,35 @@ h1, a, p, #signin-button, input{
     /* margin-top: 5rem; */
 }
 
+#role-button-wrapper, #gender-button-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.role-button{
+    max-width: 8 rem;
+    width:8rem;
+    height:2rem;
+    border:0px;
+    border-radius: 10px;
+    transition: 0.2s;
+    
+}
+
+.role-button:hover{
+    background-color: #c1c1c1;
+}
+
+.role-button:focus{
+    background-color: #fe621d;
+    color: #ffffff;
+}
+
+.role-button-clicked{
+    background-color: #fe621d;
+    color: #ffffff;
+}
+
 input{
     width:20rem;
     height:1.5rem;
@@ -96,11 +161,11 @@ input:focus{
     transition: 0.2s;
 }
 
-#signin-button:hover{
+#signup-button:hover{
     background-color: #1b66ca;
 }
 
-#signin-button:active{
+#signup-button:active{
     background-color: #1d539c;
 }
 

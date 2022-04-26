@@ -27,10 +27,10 @@ function signin(){
                 <input text="Password" placeholder="Password" id="password-text">
                 <hr class="line-separator">
                 <a text="Forgot password?" id="forgot-password"></a>
-                <button id="signin-button" @click="signin">Sign in</button>
+                <button id="signin-button" @click="signin" :style="{ cursor: 'pointer'}">Sign in</button>
                 <p id="no-account">Don't have an account?
                     <span>
-                        <a @click="signup" id="create-account">Create Account</a>
+                        <a @click="signup" id="create-account" :style="{ cursor: 'pointer'}">Create Account</a>
                     </span>
                 
                 </p>
