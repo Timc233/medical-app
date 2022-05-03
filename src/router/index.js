@@ -27,8 +27,19 @@ const router = createRouter({
     {
       path:'/home',
       name:'home',
-      component:() => import('@/views/DashboardView.vue')
+      component:() => import('@/views/DashboardView.vue'),
+    },
+    {
+      path:'/chat',
+      name:'chat',
+      component:() => import('@/views/ChatView.vue')
+    },
+    {
+      path:'/device',
+      name:'device',
+      component:() => import('@/views/DeviceView.vue')
     }
+    
   ]
 })
 

@@ -1,9 +1,9 @@
 <script setup>
-import DashboardItem from '@/components/DashboardItem.vue'
+import Dashboard from '@/components/Dashboard.vue'
 </script>
 
 <template>
   <main>
-    <DashboardItem/>
+    <Dashboard/>
   </main>
 </template>

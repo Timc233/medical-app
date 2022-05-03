@@ -8,7 +8,13 @@ import Unocss from 'unocss/vite'
 export default defineConfig({
   plugins: [
             vue(),
-            Unocss({})],
+            Unocss({
+              presets: [
+                /* no presets by default */
+              ],
+              /* options */
+            })
+          ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
