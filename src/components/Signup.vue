@@ -1,194 +1,225 @@
 <script setup>
-import {ref} from 'vue'
-const isMP = ref(false)
-const isMale = ref(false)
+import { ref } from "vue";
+const isMP = ref(false);
+const isMale = ref(false);
 
-function roleClick(event){
-    if(event.target.id == "role-patient"){
-        isMP.value = false
-    }else{
-        isMP.value = true
-    }
+function roleClick(event) {
+  if (event.target.id == "role-patient") {
+    isMP.value = false;
+  } else {
+    isMP.value = true;
+  }
 }
 
-function genderClick(event){
-    if(event.target.id == "male"){
-        isMale.value = true
-    }else{
-        isMale.value = false
-    }
+function genderClick(event) {
+  if (event.target.id == "male") {
+    isMale.value = true;
+  } else {
+    isMale.value = false;
+  }
 }
-
 </script>
 
 <template>
-<div class="wrapper">
-            <h1 class="portal-title">
-                Create your account
-            </h1>
-            <div class="input-fields">
-                <p>Select your role</p>
-                <div id="role-button-wrapper">
-                    <button id="role-patient" class="role-button" @click="roleClick" :class="isMP ?'role-button' : 'role-button-clicked'" :style="{ cursor: 'pointer'}">Patient</button>
-                    <button id="role-MP" class="role-button" @click="roleClick" :class="isMP ?'role-button-clicked' : 'role-button'" :style="{ cursor: 'pointer'}">Medical Professional</button>
-                </div>
+  <div class="wrapper">
+    <h1 class="portal-title">Create your account</h1>
+    <div class="input-fields">
+      <p>Select your role</p>
+      <div id="role-button-wrapper">
+        <button
+          id="role-patient"
+          class="role-button"
+          @click="roleClick"
+          :class="isMP ? 'role-button' : 'role-button-clicked'"
+          :style="{ cursor: 'pointer' }"
+        >
+          Patient
+        </button>
+        <button
+          id="role-MP"
+          class="role-button"
+          @click="roleClick"
+          :class="isMP ? 'role-button-clicked' : 'role-button'"
+          :style="{ cursor: 'pointer' }"
+        >
+          Medical Professional
+        </button>
+      </div>
 
-                <p>Biological Gender</p>
-                <div id="gender-button-wrapper">
-                    <button id="male" class="role-button" @click="genderClick" :class="isMale ?'role-button-clicked' : 'role-button'" :style="{ cursor: 'pointer'}">Male</button>
-                    <button id="female" class="role-button" @click="genderClick" :class="isMale ?'role-button' : 'role-button-clicked'" :style="{ cursor: 'pointer'}">Female</button>
+      <p>Biological Gender</p>
+      <div id="gender-button-wrapper">
+        <button
+          id="male"
+          class="role-button"
+          @click="genderClick"
+          :class="isMale ? 'role-button-clicked' : 'role-button'"
+          :style="{ cursor: 'pointer' }"
+        >
+          Male
+        </button>
+        <button
+          id="female"
+          class="role-button"
+          @click="genderClick"
+          :class="isMale ? 'role-button' : 'role-button-clicked'"
+          :style="{ cursor: 'pointer' }"
+        >
+          Female
+        </button>
+      </div>
 
-                </div>
-                
-                <input placeholder="Name">
-                <hr class="line-separator">
-                <input text="Email" placeholder="Email" id="email-text">
-                <hr class="line-separator">
-                <input text="Password" placeholder="Password" id="password-text">
-                <hr class="line-separator">
-                <input placeholder="Confirm">
-                <hr class="line-separator">
-                
-                <button id="signup-button" :style="{ cursor: 'pointer'}">Sign up</button>
-                
-            </div>
-            <footer></footer>
-</div>
-        
+      <input placeholder="Name" />
+      <hr class="line-separator" />
+      <input text="Email" placeholder="Email" id="email-text" />
+      <hr class="line-separator" />
+      <input text="Password" placeholder="Password" id="password-text" />
+      <hr class="line-separator" />
+      <input placeholder="Confirm" />
+      <hr class="line-separator" />
 
-    
+      <button id="signup-button" :style="{ cursor: 'pointer' }">Sign up</button>
+    </div>
+    <footer></footer>
+  </div>
 </template>
 
 <style>
-
-@font-face{
-    font-family:"Alef";
-    font-weight:400;
-    src:local("Alef"), url("src/assets/fonts/Alef-Regular.ttf")
+@font-face {
+  font-family: "Alef";
+  font-weight: 400;
+  src: local("Alef"), url("src/assets/fonts/Alef-Regular.ttf");
 }
 
-body{
-    background: rgb(93,171,255);
-    background: radial-gradient(circle, rgba(93,171,255,1) 0%, rgba(255,255,255,1) 55%);
-    
-    /* background-color: rgba(255, 255, 255, .15);   */
-    /* backdrop-filter: blur(25px); */
-  }
+body {
+  background: rgb(93, 171, 255);
+  background: radial-gradient(
+    circle,
+    rgba(93, 171, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 55%
+  );
 
-h1, a, p, #signin-button, input{
-    font-family: "Alef";
+  /* background-color: rgba(255, 255, 255, .15);   */
+  /* backdrop-filter: blur(25px); */
 }
 
-.wrapper{
-    margin:12% auto;
-    padding:20px;
-    border-radius: 5px;
-    width:max-content;
-    background-color: #ffffff;
+h1,
+a,
+p,
+#signin-button,
+input {
+  font-family: "Alef";
 }
 
-.portal-title{
-    margin: 3rem 0;
-    width: 100%;
-    text-align: center;
+.wrapper {
+  margin: 12% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: max-content;
+  background-color: #ffffff;
 }
 
-.input-fields{
-    display:flex;
-    flex-direction: column;
-    justify-content:space-evenly;
-    margin:0 auto;
-    max-width: 20rem;
-    /* margin-top: 5rem; */
+.portal-title {
+  margin: 3rem 0;
+  width: 100%;
+  text-align: center;
 }
 
-#role-button-wrapper, #gender-button-wrapper{
-    display: flex;
-    justify-content: space-evenly;
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  max-width: 20rem;
+  /* margin-top: 5rem; */
 }
 
-.role-button{
-    max-width: 8 rem;
-    width:8rem;
-    height:2rem;
-    border:0px;
-    border-radius: 10px;
-    transition: 0.2s;
-    
+#role-button-wrapper,
+#gender-button-wrapper {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.role-button:hover{
-    background-color: #c1c1c1;
+.role-button {
+  max-width: 8 rem;
+  width: 8rem;
+  height: 2rem;
+  border: 0px;
+  border-radius: 10px;
+  transition: 0.2s;
 }
 
-.role-button:focus{
-    background-color: #fe621d;
-    color: #ffffff;
+.role-button:hover {
+  background-color: #c1c1c1;
 }
 
-.role-button-clicked{
-    background-color: #fe621d;
-    color: #ffffff;
+.role-button:focus {
+  background-color: #fe621d;
+  color: #ffffff;
 }
 
-input{
-    width:20rem;
-    height:1.5rem;
-    margin:0.5rem 0 0 0;
-    border:0;
-    padding:0.5rem;
-
+.role-button-clicked {
+  background-color: #fe621d;
+  color: #ffffff;
 }
 
-input:focus{
-    outline: none;
+input {
+  width: 20rem;
+  height: 1.5rem;
+  margin: 0.5rem 0 0 0;
+  border: 0;
+  padding: 0.5rem;
 }
 
-.line-separator{
-    border: 1px solid #bbb;
-    width:20rem;
-    margin:0;
+input:focus {
+  outline: none;
 }
 
-#signup-button{
-    margin:2rem auto;
-    width:20.5rem;
-    height:2rem;
-    background-color: #007AFF;
-    color: #ffffff;
-    border-radius: 10px;
-    border-style: solid;
-    transition: 0.2s;
+.line-separator {
+  border: 1px solid #bbb;
+  width: 20rem;
+  margin: 0;
 }
 
-#signup-button:hover{
-    background-color: #1b66ca;
+#signup-button {
+  margin: 2rem auto;
+  width: 20.5rem;
+  height: 2rem;
+  background-color: #007aff;
+  color: #ffffff;
+  border-radius: 10px;
+  /* border-style: solid; */
+  border:0;
+  transition: 0.2s;
 }
 
-#signup-button:active{
-    background-color: #1d539c;
+#signup-button:hover {
+  background-color: #1b66ca;
 }
 
-#forgot-password{
-    color:#007AFF;
-    text-align: end;
-    margin:1rem 0;
+#signup-button:active {
+  background-color: #1d539c;
 }
 
-#no-account{
-    color:#8a8a8e;
+#forgot-password {
+  color: #007aff;
+  text-align: end;
+  margin: 1rem 0;
 }
 
-#create-account{
-    color: #007AFF;
-    transition: 0.2s;
+#no-account {
+  color: #8a8a8e;
 }
 
-#create-account:hover{
-    color: #064384;
+#create-account {
+  color: #007aff;
+  transition: 0.2s;
 }
 
-#create-account:active{
-    color: #000f1f;
+#create-account:hover {
+  color: #064384;
+}
+
+#create-account:active {
+  color: #000f1f;
 }
 </style>

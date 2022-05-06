@@ -1,38 +1,38 @@
 <script setup>
-import { reactive } from 'vue'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-const portals = reactive(["Chat", "Measurements", "Appointments", "Devices", "Personal Center", "Place Holder"])
+const router = useRouter();
 
-function jump(event){
-    console.log(event.target.textContent)
+const portals = ref([
+  { name: "Chat", path: "chat" },
+  { name: "Measurement", path: "Measurement" },
+  { name: "Appointment", path: "Appointment" },
+  { name: "Devices", path: "device" },
+  { name: "Personal Center", path: "personalCenter" },
+  { name: "Place Holder", path: "Place Holder" },
+]);
+
+function jump(path) {
+  router.push({ name: path });
 }
-
 </script>
 
-
-<template >
-<!-- <h1>Test</h1> -->
-<div 
-    flex="~ wrap"  
-    justify-center 
-    m-auto py-20 px-80
-    min-w-150
-    >
+<template>
+  <div flex="~ wrap" justify-start>
     <button
-    v-for="i in portals"
-    m-20
-    w-50 h-50
-    min-w-50
-    rd-5
-    @click="jump"
+      v-for="item in portals"
+      rd-5
+      m-15
+      h-50
+      w-50
+      text-lg
+      :style="{ cursor: 'pointer' }"
+      @click="jump(item.path)"
     >
-    {{i}}
+      {{ item.name }}
     </button>
-</div>
+  </div>
 </template>
 
-<style>
-
-
-
-</style>
+<style></style>
