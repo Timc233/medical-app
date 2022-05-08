@@ -113,7 +113,7 @@ input {
 .wrapper {
   margin: 12% auto;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 30px;
   width: max-content;
   background-color: #ffffff;
 }

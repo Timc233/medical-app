@@ -6,8 +6,9 @@ import SideBar from "../components/SideBar.vue";
 <template>
   <main>
     <div flex="~">
-    <SideBar id="side-bar"/>
-    <Dashboard ml-10rem/>
+    <!-- <SideBar id="side-bar"/> -->
+    <!-- <Dashboard ml-10rem/> -->
+    <Dashboard/>
   </div>
   </main>
 </template>

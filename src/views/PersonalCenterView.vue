@@ -1,22 +1,16 @@
 <script setup>
 import PersonalCenter from "../components/PersonalCenter.vue";
 import SideBar from "../components/SideBar.vue";
+import NavBar from "../components/NavBar.vue";
 </script>
 <template>
-  <div flex="~">
-    <SideBar id="side-bar"/>
-    <PersonalCenter ml-15rem id="display-content"/>
-  </div>
+  <NavBar/>
+  <PersonalCenter mt-3rem id="display-content"/>
+
   
 </template>
 
 <style>
-#side-bar{
-  position: absolute;
-  width: 15rem;
-  height:100%
-}
-
 #display-content{
   position: absolute;
   height:100%

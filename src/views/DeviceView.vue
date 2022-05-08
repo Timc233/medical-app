@@ -1,7 +1,19 @@
 <script setup>
 import Devices from "@/components/Devices.vue";
+import NavBar from "../components/NavBar.vue";
 </script>
 
 <template>
-  <Devices />
+  <NavBar/>
+  <Devices mt-3rem/>
+  
 </template>
+
+<style>
+/* 
+.content-section{
+
+} */
+
+
+</style>

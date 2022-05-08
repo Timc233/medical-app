@@ -9,12 +9,13 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "pinia": "^2.0.13",
-    "vue": "^3.2.33",
-    "vue-router": "^4.0.14",
     "axios": "^0.26.1",
+    "pinia": "^2.0.13",
     "qs": "^6.10.3",
-    "vue-axios": "^3.4.1"
+    "vue": "^3.2.33",
+    "vue-axios": "^3.4.1",
+    "vue-router": "^4.0.14",
+    "vue3-cookies": "^1.0.6"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",

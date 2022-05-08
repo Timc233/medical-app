@@ -1,35 +1,55 @@
 <script setup>
-import { inject, ref, onMounted, queuePostFlushCb } from "vue";
+import { inject, ref, onMounted, queuePostFlushCb } from "vue"
 import { useRouter } from "vue-router";
 import {userUrl} from '@/assets/properties.js'
+import {useCookies} from 'vue3-cookies'
 import qs from 'qs'
 import axios from 'axios'
 
 const router = useRouter();
 const email = ref("")
 const password = ref("")
-const test_display = ref("")
+const errorMessage = ref("")
+const {cookies} = useCookies()
 
 function signup() {
   router.push({ name: "signup" });
 }
 
 function signin() {
-  // router.push({ name: "home" });
+  
+  axios(
+    {
+      url:userUrl + '?' + qs.stringify({
+        email:email.value,
+        password:password.value
+      })
+    }
+  ).then(
+    // if(){
 
-  axios({
-    method:'put',
-    url: userUrl,
-    headers:{
-      "Content-Type":"application/x-www-form-urlencoded"
-    },
-    data: qs.stringify({
-      userEmail: email.value,
-      password: password.value
+    // }else{
+
+    // }
+    // (res) => {
+    //   console.log(res.data)
+    //   cookies.set('email', res.data.email)
+    //   cookies.set('password', res.data.password)
+    // }
+    (res) =>{
+      cookies.set('email', res.data.email)
+      cookies.set('password', res.data.password)
+      router.push({ name: "home" });      
+    }
+  ).catch(error => {
+    console.log({
+      headers:error.response.headers,
+      status:error.response.status,
+      data:error.response.data
     })
-  }).then((res) => {
-    test_display = res
+    errorMessage.value = "Wrong email or password. Try angain."
   })
+
 }
 </script>
 
@@ -42,16 +62,18 @@ function signin() {
       <input text="Password" placeholder="Password" id="password-text" v-model="password"/>
       <hr class="line-separator" />
       <!-- <a text="Forgot password?" id="forgot-password"></a> -->
-      <button id="signin-button" @click="signin" :style="{ cursor: 'pointer' }">
+      <button id="signin-button" @click="signin" cursor-pointer>
         Sign in
       </button>
-      <p>{{test_display}}</p>
+      <button @click="router.push({ name: 'home' })" h-3rem>
+        Dev Login
+      </button>
+      <p color-rose-600>{{errorMessage}}</p>
       <p id="no-account">
         Don't have an account?
         <span>
-          <a @click="signup" id="create-account" :style="{ cursor: 'pointer' }"
-            >Create Account</a
-          >
+          <a @click="signup" id="create-account" cursor-pointer
+            >Create Account</a>
         </span>
       </p>
     </div>
@@ -82,7 +104,7 @@ input {
 .wrapper {
   margin: 12% auto;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 30px;
   width: max-content;
   background-color: #ffffff;
 }
