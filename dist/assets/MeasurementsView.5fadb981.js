@@ -1,1 +1,0 @@
-import{_ as c}from"./plugin-vue_export-helper.21dcd24c.js";import{o as r,c as t,e,F as n}from"./index.47bdc87a.js";import{_}from"./NavBar.da30183a.js";const o={};function m(s,a){return r(),t("h1",null,"Measurements")}var f=c(o,[["render",m]]);const d={setup(s){return(a,u)=>(r(),t(n,null,[e(_),e(f,{"mt-3rem":""})],64))}};export{d as default};
