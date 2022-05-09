@@ -6,8 +6,8 @@ const router = useRouter();
 
 const portals = ref([
   { name: "Chat", path: "chat" },
-  { name: "Measurement", path: "Measurement" },
-  { name: "Appointment", path: "Appointment" },
+  { name: "Measurement", path: "measurements" },
+  { name: "Appointment", path: "appointments" },
   { name: "Devices", path: "device" },
   { name: "Personal Center", path: "personalCenter" },
   { name: "Place Holder", path: "Place Holder" },

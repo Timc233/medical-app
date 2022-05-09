@@ -1,7 +1,9 @@
 <script setup>
 import Measurements from '../components/Measurements.vue';
+import NavBar from '../components/NavBar.vue';
 </script>
 
 <template>
-<Measurements/>
+<NavBar/>
+<Measurements mt-3rem/>
 </template>
