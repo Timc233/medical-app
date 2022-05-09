@@ -1,9 +1,9 @@
 <script setup>
 import {ref} from "vue"
-const name = ref("Name Mockup")
-const gender = ref("Gender Mockup")
-const email = ref("Email Mockup")
-const role = ref("Role Mockup")
+const name = ref("Bob")
+const gender = ref("Male")
+const email = ref("bob@gmail.com")
+const role = ref("Patient")
 
 </script>
 

@@ -65,7 +65,14 @@ function signin() {
       <button id="signin-button" @click="signin" cursor-pointer>
         Sign in
       </button>
-      <button @click="router.push({ name: 'home' })" h-3rem>
+      <button @click="router.push({ name: 'home' })" 
+      h-3rem
+      border-0
+      rounded-xl
+      hover:cursor-pointer
+      hover:bg-stone-3
+          ease-in-out duration-200
+      >
         Dev Login
       </button>
       <p color-rose-600>{{errorMessage}}</p>

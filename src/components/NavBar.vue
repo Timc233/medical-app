@@ -37,6 +37,18 @@ function jump(path) {
     >
     {{item.name}}
     </button>
+    <button
+    w-5rem
+    b-0
+    bg-sky
+    color-stone-100
+    ml-50rem
+    hover:bg-rose-3
+    hover:color-white
+    hover:cursor-pointer
+    ease-in duration-200
+    @click="router.push('/')"
+    >Exit</button>
 </div>
 </template>
 
