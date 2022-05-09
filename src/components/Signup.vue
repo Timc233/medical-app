@@ -1,23 +1,55 @@
 <script setup>
-import { ref } from "vue";
+import { ref, reactive, computed } from "vue";
+import axios from 'axios'
 const isMP = ref(false);
-const isMale = ref(false);
+const isMale = ref(true);
 
 function roleClick(event) {
   if (event.target.id == "role-patient") {
-    isMP.value = false;
+    isMP.value = false
+    user.role = "patients"
   } else {
-    isMP.value = true;
+    isMP.value = true
+    user.role = "doctor"
   }
 }
 
 function genderClick(event) {
   if (event.target.id == "male") {
     isMale.value = true;
+    user.gender = "male"
   } else {
     isMale.value = false;
+    user.gender = "female"
   }
 }
+
+// const name = ref("")
+// const email = ref("")
+// const password = ref("")
+// const passwordConfirm = ref("")
+
+const user = reactive({
+  name:"",
+  role:"",
+  gender:"",
+  email:"",
+  password:"",
+  passwordConfirm:""
+})
+
+
+
+function signup(){
+
+
+}
+
+// const errorMessage = ref("")
+const errorMessage = computed(() => {
+  return user.password === user.passwordConfirm ? "" : "Make sure you confirmed your password" 
+})
+
 </script>
 
 <template>
@@ -68,16 +100,16 @@ function genderClick(event) {
         </button>
       </div>
 
-      <input placeholder="Name" />
+      <input placeholder="Name" v-model="user.name"/>
       <hr class="line-separator" />
-      <input text="Email" placeholder="Email" id="email-text" />
+      <input text="Email" placeholder="Email" id="email-text" v-model="user.email"/>
       <hr class="line-separator" />
-      <input text="Password" placeholder="Password" id="password-text" />
+      <input text="Password" placeholder="Password" id="password-text" v-model="user.password" />
       <hr class="line-separator" />
-      <input placeholder="Confirm" />
+      <input placeholder="Confirm" v-model="user.passwordConfirm"/>
       <hr class="line-separator" />
-
-      <button id="signup-button" :style="{ cursor: 'pointer' }">Sign up</button>
+      <p color-rose-600>{{errorMessage}}</p>
+      <button id="signup-button" cursor-pointer @click="signup">Sign up</button>
     </div>
     <footer></footer>
   </div>
