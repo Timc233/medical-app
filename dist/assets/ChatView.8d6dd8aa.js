@@ -1,1 +1,0 @@
-import{_ as o}from"./plugin-vue_export-helper.21dcd24c.js";import{o as t,c as _,e}from"./index.a269e951.js";import{_ as a}from"./NavBar.d55a8cb5.js";const n={};function s(r,c){return t(),_("h1",null,"Chat Module")}var i=o(n,[["render",s]]);const m={flex:""},d={setup(r){return(c,f)=>(t(),_("div",m,[e(a),e(i,{"mt-3rem":"",class:"content-section"})]))}};export{d as default};
